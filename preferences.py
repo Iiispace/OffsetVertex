@@ -134,3 +134,14 @@ class OffsetVert_Preferences(bpy.types.AddonPreferences):
         default = "Item",
         update = update_panel_category,
     )
+
+    def draw(self, context):
+        layout = self.layout
+        layout.label(text = "Flip Vertex:       'MIDDLEMOUSE', 'G', 'S'")
+        layout.label(text = "Reset:     'R'")
+        layout.label(text = "*-1:       'MINUS'")
+        layout.label(text = "Swap orientation:      'O', 'T'")
+        layout.label(text = "Swap factor mode:      'NUMPAD_ASTERIX', 'F'")
+        layout.label(text = "Swap length mode:      'SLASH', 'NUMPAD_SLASH', 'D'")
+        layout.label(text = "Confirm:       'LEFTMOUSE', 'RET', 'NUMPAD_ENTER'")
+        layout.label(text = "Cancel:        'RIGHTMOUSE', 'ESC'")

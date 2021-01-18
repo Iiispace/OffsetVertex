@@ -16,6 +16,8 @@ class OffsetVert_Panel(bpy.types.Panel):
         layout = self.layout
         P = fn.get_user_prefs(bpy.context).addons[__package__].preferences
 
+        layout.row().operator("object.offset_vert_operator", text = "Call operator")
+
         split = layout.split(factor=0.4)
         split.label(text = "Text Pos")
         split.row().prop(P, "text_pos", text="")

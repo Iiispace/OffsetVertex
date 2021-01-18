@@ -41,27 +41,27 @@ classes = (
     ui.OffsetVert_Panel,
 )
 
-addon_keymaps = []
+# addon_keymaps = []
 def register():
     for c in classes:
         register_class(c)
     
-    wm = bpy.context.window_manager
-    if wm.keyconfigs.addon:
-        km = wm.keyconfigs.addon.keymaps.new(name='3D View', space_type='VIEW_3D')
-        kmi = km.keymap_items.new("object.offset_vert_operator", type= 'ONE', value= 'PRESS', shift= False)
-        addon_keymaps.append((km, kmi))
+    # wm = bpy.context.window_manager
+    # if wm.keyconfigs.addon:
+    #     km = wm.keyconfigs.addon.keymaps.new(name='3D View', space_type='VIEW_3D')
+    #     kmi = km.keymap_items.new("object.offset_vert_operator", type= 'ONE', value= 'PRESS', shift= False)
+    #     addon_keymaps.append((km, kmi))
 
 def unregister():
     for c in classes:
         unregister_class(c)
 
-    wm = bpy.context.window_manager
-    kc = wm.keyconfigs.addon
-    if kc:
-        for km, kmi in addon_keymaps:
-            km.keymap_items.remove(kmi)
-    addon_keymaps.clear()
+    # wm = bpy.context.window_manager
+    # kc = wm.keyconfigs.addon
+    # if kc:
+    #     for km, kmi in addon_keymaps:
+    #         km.keymap_items.remove(kmi)
+    # addon_keymaps.clear()
 
 if __name__ == "__main__":
     register()
