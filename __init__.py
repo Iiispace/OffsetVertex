@@ -24,7 +24,7 @@ bl_info = {
     "location" : "View3d > Tool",
     "warning" : "",
     "description" : "",
-    "wiki_url" : "",
+    "wiki_url" : "https://github.com/Iiispace/OffsetVertex",
     "category" : "Mesh",
 }
 
