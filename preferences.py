@@ -10,6 +10,7 @@ from bpy.props import (
 )
 
 from .ui import OffsetVert_Panel
+from .keys import *
 
 class OffsetVert_Preferences(bpy.types.AddonPreferences):
     bl_idname = __package__
@@ -136,12 +137,25 @@ class OffsetVert_Preferences(bpy.types.AddonPreferences):
     )
 
     def draw(self, context):
+        # scene = context.scene
         layout = self.layout
-        layout.label(text = "Flip Vertex:       'MIDDLEMOUSE', 'G', 'S'")
-        layout.label(text = "Reset:     'R'")
-        layout.label(text = "*-1:       'MINUS'")
-        layout.label(text = "Swap orientation:      'O', 'T'")
-        layout.label(text = "Swap factor mode:      'NUMPAD_ASTERIX', 'F'")
-        layout.label(text = "Swap length mode:      'SLASH', 'NUMPAD_SLASH', 'D'")
-        layout.label(text = "Confirm:       'LEFTMOUSE', 'RET', 'NUMPAD_ENTER'")
-        layout.label(text = "Cancel:        'RIGHTMOUSE', 'ESC'")
+
+        keys = layout.box()
+        keys.label(text="Keys")
+
+        self.show_key(keys, key_flip, "Flip Vertex")
+        self.show_key(keys, key_reset, "Reset")
+        self.show_key(keys, key_minus, "Multiply (-1)")
+        self.show_key(keys, key_orientation, "Swap Orientation")
+        self.show_key(keys, key_factor_mode, "Swap factor mode")
+        self.show_key(keys, key_length_mode, "Swap length mode")
+        self.show_key(keys, key_backspace, "Backspace")
+        self.show_key(keys, key_confirm, "Confirm")
+        self.show_key(keys, key_cancel, "Cancel")
+
+    def show_key(self, box, key, labels):
+        key_name = box.box()
+        key_name.label(text = labels)
+        split = key_name.split(align=True)
+        for n in key:
+            split.box().column(align = True).label(text = n)
