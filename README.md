@@ -1,6 +1,6 @@
 # OffsetVertex
 Blender mesh tool  
-offset vertices from given direction
+offset vertices by given direction
 
 ![image](https://github.com/Iiispace/OffsetVertex/blob/main/img/offsetvertex.jpg)
 
